@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faith Food Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">🍽️</span>
+      <span>
+        <strong>Faith Food Hub</strong>
+        <small>Good food, happy moments!</small>
+      </span>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#hotels">Our Hotels</a>
+      <a href="tracker.html">Track Order</a>
+      <a href="cartcheckout.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+      <button id="openSignIn" class="auth-button" type="button">Sign In</button>
+      <button id="openSignUp" class="auth-button signup-button" type="button">Sign Up</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">WELCOME TO FAITH FOOD HUB</span>
+        <h1>Your Favourite Meals, All in One Place!</h1>
+        <p>Explore three hotels, order delicious meals and enjoy refreshing drinks.</p>
+        <a href="#hotels" class="primary-button">Explore Our Hotels</a>
+      </div>
+      <div class="hero-emoji" aria-hidden="true">🍔 🍟 🥤</div>
+    </section>
+
+    <section id="hotels" class="menu-section">
+      <span class="eyebrow">OUR RESTAURANTS</span>
+      <h2>Choose Your Hotel</h2>
+      <p class="muted">Each hotel offers its own delicious menu.</p>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All Hotels</button>
+        <button class="filter-btn" data-filter="hotel-1">Faith's Grill House</button>
+        <button class="filter-btn" data-filter="hotel-2">Makena Yummy Bites</button>
+        <button class="filter-btn" data-filter="hotel-3">Star City Restaurant</button>
+      </div>
+
+      <div class="menu-tools">
+        <input id="menuSearch" type="search" placeholder="Search foods or drinks..." aria-label="Search menu">
+        <select id="categoryFilter" aria-label="Filter food or drinks">
+          <option value="all">All Items</option>
+          <option value="Food">Foods</option>
+          <option value="Drink">Drinks</option>
+        </select>
+      </div>
+
+      <div id="foodContainer">
+        <p>Loading menu...</p>
+      </div>
+    </section>
+
+    <section class="cart-preview">
+      <div>
+        <span class="eyebrow">YOUR SELECTION</span>
+        <h2>Your Shopping Cart</h2>
+        <p id="cartMessage">You have not added any items yet.</p>
+      </div>
+      <div>
+        <p>Total</p>
+        <strong id="cartTotal">KSh 0</strong>
+        <p><a class="primary-button" href="cartcheckout.html">Proceed to Checkout</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sign In and Sign Up dialog -->
+  <dialog id="authDialog" class="auth-dialog">
+    <button type="button" id="closeAuth" class="close-auth" aria-label="Close">×</button>
+    <h2 class="auth-brand">🍽️ Faith Food Hub</h2>
+
+    <div class="auth-tabs">
+      <button type="button" id="signInTab" class="auth-tab active">Sign In</button>
+      <button type="button" id="signUpTab" class="auth-tab">Sign Up</button>
+    </div>
+
+    <form id="authForm">
+      <h2 id="authTitle">Welcome Back!</h2>
+      <p id="authDescription">Sign in to your account.</p>
+
+      <label for="authName" id="authNameLabel" hidden>Full Name</label>
+      <input id="authName" name="name" type="text" placeholder="Full name" autocomplete="name" hidden>
+
+      <label for="authEmail">Email Address</label>
+      <input id="authEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+      <label for="authPassword">Password</label>
+      <input id="authPassword" name="password" type="password" placeholder="At least 8 characters" minlength="8" autocomplete="current-password" required>
+
+      <button id="authSubmit" class="auth-submit" type="submit">Sign In</button>
+      <p id="authMessage" class="auth-message" role="status"></p>
+    </form>
+  </dialog>
+
+  <footer>
+    <h2>Faith Food Hub</h2>
+    <p>Bringing your favourite foods and drinks closer to you.</p>
+    <p>© <span id="currentYear"></span> Faith Food Hub</p>
+  </footer>
+</body>
+</html>
